@@ -49,10 +49,21 @@ class Authenticate extends React.Component{
         return (
             <form>
                 <div>{this.state.error}</div>
-                <input type="text" value={this.state.email} onChange={this.handleEmailChange}/>
-                <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
-                <button type="button" onClick={this.handleCreateUser}>New user</button>
-                <button type="button"onClick={this.handleLogin}>SingIn</button>
+                <h1>To Do List</h1>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" value={this.state.email} onChange={this.handleEmailChange}/>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate" value={this.state.password} onChange={this.handlePasswordChange}/>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <a class="waves-effect waves-light btn" onClick={this.handleCreateUser}>New User</a>
+                <a class="waves-effect waves-light btn" onClick={this.handleLogin}>SingIn</a>
             </form>
         );
     }

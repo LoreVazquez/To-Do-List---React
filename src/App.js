@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state={
       user: null,
     }
-
+  
     firebase.auth().onAuthStateChanged(user => {
       if(user){
         this.setState({user:user});
@@ -19,10 +19,9 @@ class App extends React.Component {
       }
     });
   }
-
+  // Se pintan los componentes si el estado se cumple
   render(){
     const component = this.state.user ? <List user={this.state.user}/> : <Authenticate />;
-
     return (
       <main>
         {component}
@@ -32,12 +31,5 @@ class App extends React.Component {
  
 }
 
-/*function List(props){
-  return (
-    <section>
-    <h1>{props.user.email}</h1>
-    <button type="button" onClick={()=>firebase.auth().signOut()}>LogOut</button>;
-  </section>
-  )
-}*/
+//Se exporta para que pueda ser utilizada en otro archivo
 export default App;
