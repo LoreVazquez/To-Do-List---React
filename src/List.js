@@ -2,6 +2,7 @@ import React from 'react';
 import AddForm from './AddForm';
 import TaskList from './TaskList';
 import firebase from 'firebase';
+import './App.css';
 
 class List extends React.Component {
     constructor(props) {
@@ -89,14 +90,16 @@ class List extends React.Component {
       tasksRef.update({
         text
       });
-
     }
   
     render() {
       return (
         <div>
-          <h1>To Do List</h1>
-          <a class="waves-effect waves-light btn"onClick={()=>firebase.auth().signOut()}>LogOut</a>
+          <div className="row">
+            <h3 className="col s8">To Do List</h3>
+            <a className="-col s2 waves-effect waves-light btn b-marg"onClick={()=>firebase.auth().signOut()}>LogOut</a>
+          </div>
+          <h5 className="center-align">Welcome: {this.props.user.email} !!</h5>
           <AddForm onAdd = {this.handleAddTask}/>  
           <TaskList tasks={this.state.tasks} onDelete={this.handleDelete} onEdit={this.handleEdit} onCheck={this.handleCheck} />        
         </div>

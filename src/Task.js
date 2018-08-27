@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './App.css'
 class Task extends React.Component {
     constructor(props){
         super(props);
@@ -52,7 +52,7 @@ class Task extends React.Component {
         if(this.state.editing){
             return (
                 <div className="task" id={this.props.id}>
-                    <p>
+                    <div className="container">
                         <label>
                             <input type="text" ref={this.inputRef} 
                                 id={`input-${this.props.id}`}
@@ -61,28 +61,28 @@ class Task extends React.Component {
                                 onChange={this.handleInputChange}/>
                         </label>
                         <div className="row">
-                            <a class="waves-effect waves-light btn-small" onClick={this.handleCancel}><i class="material-icons left">cancel</i></a>
-                            <a class="waves-effect waves-light btn-small" onClick={this.handleEdit}><i class="material-icons left">save</i></a>
+                            <a className="" onClick={this.handleCancel}><i className="material-icons left">cancel</i></a>
+                            <a className="" onClick={this.handleEdit}><i className="material-icons left">save</i></a>
                         </div>
-                    </p>
+                    </div>
                 </div>
             );
         } else {
             return (
                 <div className="task" id={this.props.id}>
-                    <p>
-                        <label>
+                    <div className="container">
+                        <label className="row">
                             <input type="checkbox" 
                                 id={`check-${this.props.id}`}
                                 onChange={this.props.onCheck}
                                 checked={this.props.done}/>
-                            <span htmlFor={`check-${this.props.id}`}>{this.props.text}</span>
+                            <span className="text" htmlFor={`check-${this.props.id}`}>{this.props.text}</span>
                         </label>
                         <div className="row">
-                            <a class="waves-effect waves-light btn-small" onClick= {this.makeEditable}><i class="material-icons left">edit</i></a>
-                            <a class="waves-effect waves-light btn-small" onClick={this.props.onDelete}><i class="material-icons left">delete</i></a>
+                            <a className=" col offset-s8" onClick= {this.makeEditable}><i className="material-icons left">edit</i></a>
+                            <a className="" onClick={this.props.onDelete}><i className="material-icons left">delete</i></a>
                         </div>
-                    </p>
+                    </div>
                 </div>
             );
         }

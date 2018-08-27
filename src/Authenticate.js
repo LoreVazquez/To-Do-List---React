@@ -1,5 +1,5 @@
 import React from 'react';
-//import 'authenticate.css' para agregar estilos
+import './App.css' //para agregar estilos
 import firebase from 'firebase'
 
 class Authenticate extends React.Component{
@@ -48,22 +48,24 @@ class Authenticate extends React.Component{
 
         return (
             <form>
+                <div className="row">
+                    <h1 className="col l6 offset-l4 m8 offset-m3 s10 offset-s1">To Do List</h1>
+                    <div className="input-field col s12">
+                        <input id="email" type="email" className="validate" value={this.state.email} onChange={this.handleEmailChange}/>
+                        <label htmlFor="email">Email</label>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="input-field col s12">
+                        <input id="password" type="password" className="validate" value={this.state.password} onChange={this.handlePasswordChange}/>
+                        <label htmlFor="password">Password</label>
+                    </div>
+                </div>
                 <div>{this.state.error}</div>
-                <h1>To Do List</h1>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" value={this.state.email} onChange={this.handleEmailChange}/>
-                        <label for="email">Email</label>
-                    </div>
+                <div className="row">
+                    <a className="waves-effect waves-light btn col offset-s3" onClick={this.handleCreateUser}>New User</a>
+                    <a className="waves-effect waves-light btn col offset-s1" onClick={this.handleLogin}>SingIn</a>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" value={this.state.password} onChange={this.handlePasswordChange}/>
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-                <a class="waves-effect waves-light btn" onClick={this.handleCreateUser}>New User</a>
-                <a class="waves-effect waves-light btn" onClick={this.handleLogin}>SingIn</a>
             </form>
         );
     }

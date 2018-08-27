@@ -1,28 +1,25 @@
-.App {
-  text-align: center;
+/*font-family: 'Monoton', cursive;
+font-family: 'Cinzel', serif;
+font-family: 'Merienda', cursive;*/
+
+h1{
+    font-family: 'Monoton', cursive;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h3{
+    font-family: 'Cinzel', serif; 
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.b-marg{
+    margin-top: 30px;
 }
 
-.App-title {
-  font-size: 1.5em;
+h5{
+    font-family: 'Merienda', cursive;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.text{
+    color: black;
+    font-family: 'Merienda', cursive;
+    font-weight: 700;
 }
