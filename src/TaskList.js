@@ -1,11 +1,20 @@
 import React from 'react';
+import Task from './Task'
 
 function TaskList(props) {
-    return ( <ul>
-                {props.items.map(item => (
-                    <Task key={item.id} text={item.text} />
+    return ( <div>
+                {props.tasks.map(task => (
+                    <Task key={task.id}
+                    id={task.id} 
+                    text={task.text}
+                    done={task.done}
+                    onCheck = {props.onCheck}
+                    onDelete = {props.onDelete}
+                    onEdit = {props.onEdit}
+                    />
                 ))}
-            </ul> );
+            </div> 
+    );
 }
 
 export default TaskList;

@@ -1,6 +1,6 @@
 import React from 'react';
 import AddForm from './AddForm';
-import Task from './Task';
+import TaskList from './TaskList';
 import firebase from 'firebase';
 
 class List extends React.Component {
@@ -15,9 +15,13 @@ class List extends React.Component {
 
       this.handleAddTask = this.handleAddTask.bind(this);
 
-      //this.handleChildAdded = this.handleChildAdded.bind(this);
+      this.handleChildAdded = this.handleChildAdded.bind(this);
       //this.handleChildChanged = this.handleChildChanged.bind(this);
       //this.handleChildDeleted = this.handleChildDeleted.bind(this);
+      
+    }
+    componentDidMount(){
+      this.tasksRef.on('child_added', this.handleChildAdded);
     }
 
     handleAddTask(text){
@@ -31,6 +35,13 @@ class List extends React.Component {
         done: false
       });
     }
+
+    handleChildAdded(data){
+      const newTask = data.val();
+      newTask.id = data.key;
+      var newTasks = this.state.tasks.concat(newTask);
+      this.setState({tasks: newTasks});
+    }
   
     render() {
       return (
@@ -38,7 +49,7 @@ class List extends React.Component {
           <h1>To Do List</h1>
           <a class="waves-effect waves-light btn"onClick={()=>firebase.auth().signOut()}>LogOut</a>
           <AddForm onAdd = {this.handleAddTask}/>  
-          <Task />        
+          <TaskList tasks={this.state.tasks} onDelete={this.handleDelete} onEdit={this.handleEdit} onCheck={this.handleCheck} />        
         </div>
       );
     }
