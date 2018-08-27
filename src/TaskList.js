@@ -2,7 +2,7 @@ import React from 'react';
 import Task from './Task'
 
 function TaskList(props) {
-    return ( <div>
+    return ( <div className="task">
                 {props.tasks.map(task => (
                     <Task key={task.id}
                     id={task.id} 
